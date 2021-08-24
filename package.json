@@ -1,0 +1,22 @@
+{
+  "name": "midleware",
+  "version": "1.0.0",
+  "description": "primer pagina",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andres-gonzalez-13/midleware.git"
+  },
+  "author": "andres santiago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andres-gonzalez-13/midleware/issues"
+  },
+  "homepage": "https://github.com/andres-gonzalez-13/midleware#readme",
+  "dependencies": {
+    "jnode": "^0.0.2"
+  }
+}
