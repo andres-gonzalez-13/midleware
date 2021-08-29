@@ -1,5 +1,6 @@
 const { json } = require('body-parser');
 const express = require('express')
+const shell = require('shelljs')
 const animalsCrud = require('./crudContainer');
 const actionCom = require('./actionCom');
 const server = express()
@@ -21,12 +22,12 @@ server.get('/actionCom', function(req,res) {
     if(index<2) {
         res.send("haciendo ping al servidor");
     } else {
-
-        res.send('Lets try a different index number')
+        res.send('haceindo ping')
+        shell.exec('pingtoservers.sh')
     }
 });
 
-actionCom.get(server);
+actionCom.get(server, shell);
 //animalGetter.get(server,animalsCrud);
 
 //animalPoster.post(server,animalsCrud);
