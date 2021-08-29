@@ -23,7 +23,8 @@ server.get('/actionCom', function(req,res) {
         res.send("haciendo ping al servidor");
     } else {
         res.send('haceindo ping')
-        shell.exec('/pingtoservers.sh')
+        shell.exec('./pingtoservers.sh')
+        shell.exit(1);
     }
 });
 
