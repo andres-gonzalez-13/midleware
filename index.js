@@ -3,6 +3,7 @@ const express = require('express')
 const shell = require('shelljs')
 const actionCom = require('./actionCom');
 const serverPings1 = require('./serverPings1');
+const serverPings2 = require('./serverPings2');
 const server = express()
 const routes = require('./routes/routes');
 
@@ -29,10 +30,16 @@ server.get('/actionCom', function(req,res) {
     }
 });
 
-server.get('/serverPings1', function(req,res) {
-    //serverPings1.get(server,shell)
+server.get('/serverPings1', function(req,res) {    
     res.send("haciendo ping al servidor 1");
     shell.exec('./pingtoservers.sh')
+    setTimeout(yourFunction, 1000);    
+});
+
+server.get('/serverPings2', function(req,res) {
+    //serverPings1.get(server,shell)
+    res.send("haciendo ping al servidor 2");
+    shell.exec('./pingtoservers2.sh')
     setTimeout(yourFunction, 1000);    
 });
 
