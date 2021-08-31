@@ -1,8 +1,8 @@
 const { json } = require('body-parser');
 const express = require('express')
 const shell = require('shelljs')
-const animalsCrud = require('./crudContainer');
 const actionCom = require('./actionCom');
+const serverPings1 = require('./serverPings1');
 const server = express()
 const routes = require('./routes/routes');
 
@@ -16,23 +16,30 @@ server.listen(4000, function() {
 });
 
 server.get('/actionCom', function(req,res) {
-    //const index = req.query.animalIndex - 1;
-    const index = 4;
+    //const index = 1;
+    //const index = req.get('input');
+    var index = req.body.value;
     console.log(index)
     if(index<2) {
         res.send("haciendo ping al servidor");
     } else {
         res.send('haceindo ping')
-        shell.exec('./pingtoservers.sh')
-        shell.exit(1);
+        //shell.exec('./pingtoservers.sh')
+        //shell.exit(1);
     }
 });
 
-actionCom.get(server, shell);
-//animalGetter.get(server,animalsCrud);
+server.get('/serverPings1', function(req,res) {
+    //serverPings1.get(server,shell)
+    res.send("haciendo ping al servidor 1");
+    shell.exec('./serverPings1.sh')
+    setTimeout(yourFunction, 1000);    
+});
 
-//animalPoster.post(server,animalsCrud);
+actionCom.get(server, shell);
+
+//actionCom.post(server,animalsCrud);
 routes.get(server, '/', "index")
 
-//routes.get(server, '/actionCom', "com");
+
 

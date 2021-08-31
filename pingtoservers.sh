@@ -1,9 +1,6 @@
 #! /bin/sh
 current_date=$(date)
 
-if ping -c 1 192.168.0.105 &> /dev/null
-then
-  echo 1
-else
-  echo 0
-fi
+last_debian0_ping=$(curl -s -o /dev/null -w '%{http_code}' http://192.168.100.12:4000/status)
+
+echo "$last_debian0_ping $current_date" > ./last_debian0_ping.txt
