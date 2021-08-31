@@ -32,7 +32,7 @@ server.get('/actionCom', function(req,res) {
 server.get('/serverPings1', function(req,res) {
     //serverPings1.get(server,shell)
     res.send("haciendo ping al servidor 1");
-    shell.exec('./serverPings1.sh')
+    shell.exec('serverPings1.sh')
     setTimeout(yourFunction, 1000);    
 });
 
